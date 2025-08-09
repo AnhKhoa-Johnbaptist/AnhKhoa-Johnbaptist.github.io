@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Đăng nhập - Run.vn</title>
+  <title>Liên hệ - Tinbanxe.vn</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -81,44 +81,43 @@
       font-weight: 500;
     }
 
-    .login-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 60vh;
-      padding: 30px 0 40px 0;
-    }
-
-    .login-box {
+    .contact-section {
       background: var(--white);
       border-radius: 8px;
-      box-shadow: 0 2px 12px #0001;
-      padding: 36px 28px 30px 28px;
-      width: 100%;
-      max-width: 380px;
-      min-width: 0;
+      margin: 30px 0 25px 0;
+      padding: 28px 18px 22px 18px;
+      box-shadow: 0 2px 8px #0001;
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
     }
 
-    .login-box h2 {
+    .contact-form {
+      flex: 1 1 350px;
+      min-width: 260px;
+      max-width: 500px;
+      margin-bottom: 18px;
+    }
+
+    .contact-form h2 {
       color: var(--primary);
+      margin-bottom: 14px;
       font-size: 1.35rem;
-      margin-bottom: 24px;
-      text-align: center;
-      font-weight: bold;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .form-group label {
       display: block;
       font-weight: 500;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       color: #444;
     }
 
-    .form-group input {
+    .form-group input,
+    .form-group textarea {
       width: 100%;
       padding: 8px 10px;
       border: 1px solid #ddd;
@@ -126,83 +125,89 @@
       font-size: 1rem;
       font-family: inherit;
       background: #fafafa;
-      transition: border 0.2s;
     }
 
-    .form-group input:focus {
-      border: 1.5px solid var(--primary);
-      outline: none;
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
     }
 
-    .login-box button {
-      width: 100%;
+    .contact-form button {
       background: var(--primary);
       color: #fff;
       border: none;
       border-radius: 4px;
-      padding: 10px 0;
-      font-size: 1.08rem;
+      padding: 9px 26px;
+      font-size: 1.05rem;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 10px;
       transition: background 0.2s;
     }
 
-    .login-box button:hover {
+    .contact-form button:hover {
       background: #d44b00;
     }
 
-    .login-links {
+    .contact-info {
+      flex: 1 1 260px;
+      min-width: 220px;
+      background: #faf9f9;
+      border-radius: 8px;
+      padding: 22px 18px;
+      box-shadow: 0 1px 6px #0001;
+      margin-bottom: 18px;
       display: flex;
-      justify-content: space-between;
-      margin-top: 13px;
-      font-size: 0.98rem;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
-    .login-links a {
+    .contact-info h3 {
+      color: var(--primary);
+      font-size: 1.12rem;
+      font-weight: bold;
+      margin-bottom: 11px;
+    }
+
+    .contact-info .info-item {
+      margin-bottom: 10px;
+      color: #444;
+      font-size: 1rem;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .contact-info .info-item span {
+      font-weight: bold;
+      min-width: 72px;
+      display: inline-block;
+      color: #222;
+    }
+
+    .contact-info .info-item a {
       color: var(--primary);
       text-decoration: none;
-      transition: color 0.2s;
     }
 
-    .login-links a:hover {
+    .contact-info .info-item a:hover {
       text-decoration: underline;
-      color: #d44b00;
-    }
-
-    .error-message,
-    .success-message {
-      display: none;
-      padding: 10px 13px;
-      border-radius: 5px;
-      margin-bottom: 13px;
-      font-weight: 500;
-      font-size: 0.99rem;
-    }
-
-    .error-message {
-      background: #fff0ee;
-      color: #c0392b;
-      border: 1px solid #f6bfbf;
     }
 
     .success-message {
       background: #e4ffe8;
       color: #118844;
       border: 1px solid #b2f5c2;
-    }
-
-    @media (max-width: 480px) {
-      .login-box {
-        padding: 20px 7px;
-      }
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-weight: 500;
+      display: none;
     }
 
     footer {
       background: #222;
       color: #fff;
       padding: 32px 0 18px 0;
-      margin-top: 30px;
+      margin-top: 35px;
       font-size: 0.98rem;
     }
 
@@ -244,6 +249,18 @@
       font-size: 0.96rem;
     }
 
+    @media (max-width: 900px) {
+      .contact-section {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .contact-form,
+      .contact-info {
+        max-width: none;
+      }
+    }
+
     @media (max-width: 760px) {
 
       .top-bar,
@@ -264,34 +281,67 @@
     <div class="container top-bar">
       <a href="#" class="logo">run.vn</a>
       <div class="user-actions">
+        <a href="profile.html">Profile</a>
+        <a href="login.html">Logout</a>
       </div>
     </div>
+    <nav>
+      <div class="container">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main class="container">
-    <section class="login-section">
-      <form class="login-box" id="loginForm" autocomplete="off">
-        <h2>Đăng nhập tài khoản</h2>
-        <div class="error-message" id="errorMessage">
-          <!-- Hiển thị lỗi ở đây -->
-        </div>
+    <section class="contact-section">
+      <form class="contact-form" id="contactForm" autocomplete="off">
+        <h2>Liên hệ với Run.vn</h2>
         <div class="success-message" id="successMessage">
-          Đăng nhập thành công! (Demo frontend)
+          Cảm ơn bạn đã gửi liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.
         </div>
         <div class="form-group">
-          <label for="loginPhone">Số điện thoại</label>
-          <input type="tel" id="loginPhone" name="loginPhone" placeholder="Nhập số điện thoại" maxlength="20" required>
+          <label for="name">Họ và tên <span style="color:#f60">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="Nhập họ tên...">
         </div>
         <div class="form-group">
-          <label for="loginPassword">Mật khẩu</label>
-          <input type="password" id="loginPassword" name="loginPassword" placeholder="Nhập mật khẩu" required>
+          <label for="email">Email <span style="color:#f60">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="Nhập email...">
         </div>
-        <button type="submit">Đăng nhập</button>
-        <div class="login-links">
-          <a href="#">Quên mật khẩu?</a>
-          <a href="register.html">Đăng ký</a>
+        <div class="form-group">
+          <label for="phone">Số điện thoại</label>
+          <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại...">
         </div>
+        <div class="form-group">
+          <label for="message">Nội dung <span style="color:#f60">*</span></label>
+          <textarea id="message" name="message" required placeholder="Nội dung liên hệ..."></textarea>
+        </div>
+        <button type="submit">Gửi liên hệ</button>
       </form>
+      <div class="contact-info">
+        <h3>Thông tin liên hệ</h3>
+        <div class="info-item">
+          <span>Địa chỉ:</span> 196/1/29 Cộng Hòa, P.12, Q. Tân Bình, TP HCM
+        </div>
+        <div class="info-item">
+          <span>Hotline:</span> <a href="tel:02866845555">028-6684-5555</a>
+        </div>
+        <div class="info-item">
+          <span>Email:</span> <a href="mailto:info@tinbanxe.vn">info@run.vn</a>
+        </div>
+        <div class="info-item">
+          <span>Website:</span> <a href="https://tinbanxe.vn" target="_blank">Run.vn</a>
+        </div>
+        <div class="info-item">
+          <span>Giấy phép:</span> 0314576203 (15/07/2017)
+        </div>
+        <div class="info-item">
+          <span>Chịu TN:</span> Mai Le Anh Khoa
+        </div>
+      </div>
     </section>
   </main>
 
@@ -322,60 +372,18 @@
       © 2025 Tinbanxe.vn | Ghi rõ nguồn "Run.vn" khi phát hành lại thông tin từ website này.
     </div>
   </footer>
-<script>
-  const loginForm = document.getElementById('loginForm');
-  const errorMessage = document.getElementById('errorMessage');
-  const successMessage = document.getElementById('successMessage');
 
-  loginForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    errorMessage.style.display = 'none';
-    successMessage.style.display = 'none';
-
-    const phone = loginForm.loginPhone.value.trim();
-    const pass = loginForm.loginPassword.value;
-    let error = '';
-
-    if (!phone) {
-      error = 'Vui lòng nhập số điện thoại.';
-    } else if (!/^[0-9\+\-\s]{8,}$/.test(phone)) {
-      error = 'Số điện thoại không hợp lệ.';
-    } else if (!pass) {
-      error = 'Vui lòng nhập mật khẩu.';
-    } else if (pass.length < 4) {
-      error = 'Mật khẩu phải từ 4 ký tự trở lên.';
-    }
-
-    if (error) {
-      errorMessage.textContent = error;
-      errorMessage.style.display = 'block';
-      return;
-    }
-
-    // Lấy dữ liệu từ localStorage
-    const storedUser = JSON.parse(localStorage.getItem('userData'));
-
-    if (!storedUser) {
-      errorMessage.textContent = 'Không tìm thấy thông tin người dùng. Vui lòng đăng ký trước.';
-      errorMessage.style.display = 'block';
-      return;
-    }
-
-    // So sánh thông tin nhập vào với dữ liệu đã lưu
-    if (storedUser.phone === phone && storedUser.password === pass) {
-      successMessage.style.display = 'block';
-      loginForm.reset();
-
-      // Chuyển hướng sang trang home.html sau 1 giây
-      setTimeout(() => {
-        window.location.href = 'home.html';
-      }, 1000);
-    } else {
-      errorMessage.textContent = 'Số điện thoại hoặc mật khẩu không đúng.';
-      errorMessage.style.display = 'block';
-    }
-  });
-</script>
+  <script>
+    // Demo: Show success message, reset form (no actual submission)
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('successMessage').style.display = 'block';
+      this.reset();
+      setTimeout(function () {
+        document.getElementById('successMessage').style.display = 'none';
+      }, 5000);
+    });
+  </script>
 </body>
 
 </html>
